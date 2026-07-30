@@ -157,47 +157,70 @@ function animationLoop() {
   requestAnimationFrame(animationLoop);
 }
 
-// Preload sequence
-function preloadImages() {
-  resizeCanvas();
+// Progressive High-Speed Streaming Preloader
+let isUnlocked = false;
 
-  for (let i = 0; i < TOTAL_FRAMES; i++) {
-    const img = new Image();
-    img.src = getFramePath(i);
-
-    img.onload = () => {
-      loadedCount++;
-      const progress = Math.round((loadedCount / TOTAL_FRAMES) * 100);
-      if (loaderText) {
-        loaderText.textContent = `Loading ${progress}%`;
-      }
-
-      if (i === 0) {
-        renderFrame(0);
-      }
-
-      if (loadedCount === TOTAL_FRAMES) {
-        onPreloadComplete();
-      }
-    };
-
-    img.onerror = () => {
-      loadedCount++;
-      if (loadedCount === TOTAL_FRAMES) {
-        onPreloadComplete();
-      }
-    };
-
-    images.push(img);
-  }
-}
-
-function onPreloadComplete() {
+function unlockLoader() {
+  if (isUnlocked) return;
+  isUnlocked = true;
   if (loader) {
     loader.classList.add('hidden');
   }
   updateScrollTarget();
   renderFrame(Math.round(currentFrame));
+}
+
+function preloadImages() {
+  resizeCanvas();
+
+  // Create image slots
+  for (let i = 0; i < TOTAL_FRAMES; i++) {
+    images[i] = new Image();
+  }
+
+  // Phase 1: Load initial 15 critical frames first to unlock screen instantly (< 400ms)
+  const CRITICAL_FRAMES = 15;
+  let criticalLoaded = 0;
+
+  // Safety fallback timer: Unlock after max 600ms no matter what network condition
+  const fallbackTimer = setTimeout(() => {
+    unlockLoader();
+  }, 600);
+
+  for (let i = 0; i < TOTAL_FRAMES; i++) {
+    const img = images[i];
+    img.src = getFramePath(i);
+
+    img.onload = () => {
+      loadedCount++;
+      if (i === 0) {
+        renderFrame(0);
+      }
+
+      if (i < CRITICAL_FRAMES) {
+        criticalLoaded++;
+        if (criticalLoaded >= Math.min(CRITICAL_FRAMES, TOTAL_FRAMES)) {
+          clearTimeout(fallbackTimer);
+          unlockLoader();
+        }
+      }
+
+      if (loadedCount === TOTAL_FRAMES) {
+        unlockLoader();
+      }
+    };
+
+    img.onerror = () => {
+      loadedCount++;
+      if (i < CRITICAL_FRAMES) {
+        criticalLoaded++;
+        if (criticalLoaded >= Math.min(CRITICAL_FRAMES, TOTAL_FRAMES)) {
+          clearTimeout(fallbackTimer);
+          unlockLoader();
+        }
+      }
+    };
+  }
 }
 
 
