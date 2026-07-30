@@ -159,15 +159,25 @@ function animationLoop() {
 
 // Progressive High-Speed Streaming Preloader
 let isUnlocked = false;
+const CRITICAL_FRAMES = 25; // First 25 frames needed for hero & initial scroll
 
 function unlockLoader() {
   if (isUnlocked) return;
   isUnlocked = true;
-  if (loader) {
-    loader.classList.add('hidden');
+  if (loaderText) {
+    loaderText.textContent = `Loading 100%`;
   }
+  
+  // Guarantee frame 0 is rendered on canvas
+  renderFrame(0);
   updateScrollTarget();
-  renderFrame(Math.round(currentFrame));
+
+  // Small 200ms delay to display 100% before smooth fade-out
+  setTimeout(() => {
+    if (loader) {
+      loader.classList.add('hidden');
+    }
+  }, 200);
 }
 
 function preloadImages() {
@@ -178,47 +188,55 @@ function preloadImages() {
     images[i] = new Image();
   }
 
-  // Phase 1: Load initial 15 critical frames first to unlock screen instantly (< 400ms)
-  const CRITICAL_FRAMES = 15;
   let criticalLoaded = 0;
 
-  // Safety fallback timer: Unlock after max 600ms no matter what network condition
-  const fallbackTimer = setTimeout(() => {
-    unlockLoader();
-  }, 600);
-
-  for (let i = 0; i < TOTAL_FRAMES; i++) {
+  // Phase 1: Load initial 25 critical frames with smooth 0-100% progress bar
+  for (let i = 0; i < CRITICAL_FRAMES; i++) {
     const img = images[i];
     img.src = getFramePath(i);
 
     img.onload = () => {
       loadedCount++;
+      criticalLoaded++;
+
+      const progress = Math.min(100, Math.round((criticalLoaded / CRITICAL_FRAMES) * 100));
+      if (loaderText) {
+        loaderText.textContent = `Loading ${progress}%`;
+      }
+
       if (i === 0) {
         renderFrame(0);
       }
 
-      if (i < CRITICAL_FRAMES) {
-        criticalLoaded++;
-        if (criticalLoaded >= Math.min(CRITICAL_FRAMES, TOTAL_FRAMES)) {
-          clearTimeout(fallbackTimer);
-          unlockLoader();
-        }
-      }
-
-      if (loadedCount === TOTAL_FRAMES) {
+      if (criticalLoaded === CRITICAL_FRAMES) {
         unlockLoader();
+        startBackgroundLoading();
       }
     };
 
     img.onerror = () => {
       loadedCount++;
-      if (i < CRITICAL_FRAMES) {
-        criticalLoaded++;
-        if (criticalLoaded >= Math.min(CRITICAL_FRAMES, TOTAL_FRAMES)) {
-          clearTimeout(fallbackTimer);
-          unlockLoader();
-        }
+      criticalLoaded++;
+      if (criticalLoaded === CRITICAL_FRAMES) {
+        unlockLoader();
+        startBackgroundLoading();
       }
+    };
+  }
+}
+
+// Phase 2: Stream remaining frames seamlessly in background
+function startBackgroundLoading() {
+  for (let i = CRITICAL_FRAMES; i < TOTAL_FRAMES; i++) {
+    const img = images[i];
+    img.src = getFramePath(i);
+
+    img.onload = () => {
+      loadedCount++;
+    };
+
+    img.onerror = () => {
+      loadedCount++;
     };
   }
 }
