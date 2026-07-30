@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology Crafted for All Not Machines</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Silkscreen&family=VT323&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="loader" class="loader-container">
+    <div class="loader-spinner"></div>
+    <div class="loader-text" id="loader-text">Loading 0%</div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-brand" id="nav-brand-logo">
+      <div class="brand-logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="10" height="10" rx="3" fill="#FF5500"/>
+          <rect x="18" y="4" width="10" height="10" rx="3" fill="#FF5500"/>
+          <rect x="4" y="18" width="10" height="10" rx="3" fill="#FF5500"/>
+          <rect x="18" y="18" width="10" height="10" rx="3" fill="#FF7733"/>
+        </svg>
+      </div>
+    </div>
+
+    <nav class="nav-menu" id="nav-menu">
+      <a href="#hero-track" class="nav-link" id="link-home">Home</a>
+      <a href="#section-2" class="nav-link" id="link-how-it-works">How It Works</a>
+      <a href="#about" class="nav-link" id="link-about">About</a>
+
+      <div class="nav-item-dropdown">
+        <a href="#features" class="nav-link dropdown" id="link-features">
+          Features <span class="chevron">▾</span>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#features" class="dropdown-item">
+            <span class="dp-dot">▪</span> Digital Strategy
+          </a>
+          <a href="#features" class="dropdown-item">
+            <span class="dp-dot">▪</span> Creative Direction
+          </a>
+          <a href="#features" class="dropdown-item">
+            <span class="dp-dot">▪</span> Media & Advertising
+          </a>
+          <a href="#features" class="dropdown-item">
+            <span class="dp-dot">▪</span> Tech Solutions
+          </a>
+          <a href="#features" class="dropdown-item">
+            <span class="dp-dot">▪</span> Data & Intelligence
+          </a>
+        </div>
+      </div>
+
+      <a href="#product" class="nav-link" id="link-product">Product</a>
+      <a href="#partners" class="nav-link" id="link-partners">Partners</a>
+      <a href="#testimonials" class="nav-link" id="link-testimonials">Testimonials</a>
+      <a href="#contact" class="nav-link" id="link-contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <span class="live-clock" id="live-clock">02:16 PM (USA)</span>
+      <button class="btn-primary-sm" id="btn-nav-get-started">Get Started</button>
+      <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- FIXED CANVAS & HERO STAGE -->
+  <div class="hero-stage">
+    <!-- Pinned Fixed Canvas Background -->
+    <div class="canvas-wrapper" id="canvas-wrapper">
+      <canvas id="hero-canvas"></canvas>
+      <div class="vignette-overlay"></div>
+    </div>
+
+    <!-- Pinned Fixed Left Hero Overlay -->
+    <div class="hero-content-container" id="hero-content-container">
+      <div class="hero-left-column" id="hero-left-column">
+        <!-- Top Badge -->
+        <div class="badge-tag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span>Hub support peoples from all over the world</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="hero-title">
+          Technology<br>
+          Crafted for All<br>
+          Not <span class="italic-serif">Machines</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle">
+          We create clear, intuitive, and accessible digital experiences shaped by real human behavior.
+        </p>
+
+        <!-- CTA Button & Client Social Proof -->
+        <div class="cta-clients-row">
+          <button class="btn-get-started">
+            <span>Get started</span>
+            <div class="arrow-circle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </button>
+
+          <div class="clients-proof">
+            <div class="avatar-stack">
+              <div class="avatar av-1"></div>
+              <div class="avatar av-2"></div>
+              <div class="avatar av-3"></div>
+            </div>
+            <div class="proof-text">
+              <strong>900+ Happy Clients</strong>
+              <span>Over 5 years</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics Cards -->
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <div class="metric-value">150+ <span class="asterisk">*</span></div>
+            <div class="metric-label">Projects delivered *</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">98% <span class="asterisk">*</span></div>
+            <div class="metric-label">Client satisfaction *</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 400vh Scroll Driver Track -->
+    <div id="hero-track"></div>
+  </div>
+
+  <!-- SECTION 2: CREATE STUNNING IMAGES PROMPT SECTION -->
+  <section class="section-prompt-below" id="section-2">
+    <div class="prompt-glow-backdrop"></div>
+    <div class="prompt-theme-container">
+      <div class="prompt-section-wrapper">
+        <h2 class="prompt-title">
+          Create Stunning <span class="pixel-font">Images</span><br>
+          with <span class="pixel-font">Just a Prompt</span>
+        </h2>
+
+        <p class="prompt-subtitle">
+          Turn your ideas into high-quality visuals in seconds,<br>no design skills needed.
+        </p>
+
+        <div class="prompt-btn-wrap">
+          <button class="btn-generate-prompt">
+            <span>Generate image</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Continuous Horizontal 3D Marquee Gallery (With Hover Pause) -->
+        <div class="gallery-3d-arc">
+          <div class="gallery-marquee-track">
+            <!-- Set 1 -->
+            <div class="arc-card">
+              <img src="/gallery/cyberpunk_visor_1_1785399993601.png" alt="Dot Matrix Portrait" />
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/scrolled_state_1_1785399076661.png" alt="Cyber Suit" />
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/scrolled_state_2_1785399098498.png" alt="Corridor Figure" />
+            </div>
+            <div class="arc-card center-highlight">
+              <img src="/gallery/neon_laser_3_1785400014676.png" alt="Neon Laser Split" />
+              <div class="laser-beam"></div>
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/cyberbike_2_1785400005058.png" alt="Cyberbike" />
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/pink_visor_4_1785400025054.png" alt="Visor Female" />
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/scrolled_state_3_1785399118951.png" alt="Pink Portrait" />
+            </div>
+
+            <!-- Duplicated Set for Seamless Infinite Loop -->
+            <div class="arc-card">
+              <img src="/gallery/cyberpunk_visor_1_1785399993601.png" alt="Dot Matrix Portrait" />
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/scrolled_state_1_1785399076661.png" alt="Cyber Suit" />
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/scrolled_state_2_1785399098498.png" alt="Corridor Figure" />
+            </div>
+            <div class="arc-card center-highlight">
+              <img src="/gallery/neon_laser_3_1785400014676.png" alt="Neon Laser Split" />
+              <div class="laser-beam"></div>
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/cyberbike_2_1785400005058.png" alt="Cyberbike" />
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/pink_visor_4_1785400025054.png" alt="Visor Female" />
+            </div>
+            <div class="arc-card">
+              <img src="/gallery/scrolled_state_3_1785399118951.png" alt="Pink Portrait" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Column Features Grid -->
+        <div class="prompt-features-grid">
+          <div class="prompt-feature-col">
+            <h3 class="feat-col-title">Lightning-Fast<br>Image Generation</h3>
+            <p class="feat-col-desc">Type what you imagine, hit enter, and watch AI bring it to life in moments.</p>
+          </div>
+          <div class="prompt-feature-col">
+            <h3 class="feat-col-title">Multiple Styles &<br>Customization</h3>
+            <p class="feat-col-desc">Pick a style and fine-tune details like color, lighting, and mood.</p>
+          </div>
+          <div class="prompt-feature-col">
+            <h3 class="feat-col-title">High-Resolution<br>Downloads</h3>
+            <p class="feat-col-desc">Export your creations in high-quality resolution for print, web, or social media.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: ABOUT BE GROUP SECTION -->
+  <section class="section-be-group" id="about">
+    <div class="be-ambient-glow"></div>
+    <div class="be-container">
+      <div class="be-header-bar">
+        <div class="be-brand-tag">
+          <span class="be-logo-text">Be<span class="be-sub-tag">GROUP</span></span>
+        </div>
+        <div class="be-intel-tag">
+          <strong>Intelligence</strong>
+          <span>has a heartbeat and it sounds like 1s</span>
+        </div>
+      </div>
+
+      <div class="be-content-grid">
+        <div class="be-hud-box">
+          <div class="hud-pill-header">
+            <span class="hud-stripes">//////</span>
+            <span class="hud-pill-title">About <strong>Be Group</strong></span>
+          </div>
+          <div class="hud-box-body">
+            <p class="hud-p-highlight">
+              <strong>Be Group</strong> is a full-service marketing agency based in Egypt. Since <strong>2009</strong>, we've been driving innovation and measurable growth in Digital and E-Marketing.
+            </p>
+            <p class="hud-p">
+              We've partnered with leading brands to build stronger connections, expand reach, and achieve sustainable success. With every project, our creativity evolved, our standards rose, and our impact grew empowering over <strong>3,000 brands</strong> to reach the right audience and outperform competitors.
+            </p>
+          </div>
+        </div>
+
+        <div class="be-visual-col">
+          <div class="visual-wrapper">
+            <img src="/gallery/cyber_robot_head.png" alt="3D Cyber Robot Head" class="be-3d-img" />
+            <div class="visual-glow-orange"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="be-footer-tag">
+        <span class="digital-tag">Digital Solutions</span>
+        <span class="smarter-tag">Made Smarter</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: WHAT WE DO & EXPERTISE -->
+  <section class="section-be-group section-what-we-do" id="features">
+    <div class="be-ambient-glow"></div>
+    <div class="be-container">
+      <div class="be-header-bar">
+        <div class="be-brand-tag">
+          <span class="be-logo-text">Be<span class="be-sub-tag">GROUP</span></span>
+        </div>
+        <div class="be-intel-tag">
+          <strong>Intelligence</strong>
+          <span>has a heartbeat and it sounds like 1s</span>
+        </div>
+      </div>
+
+      <div class="be-content-grid grid-reverse">
+        <div class="be-visual-col">
+          <div class="visual-wrapper">
+            <img src="/gallery/circuit_statue_head.png" alt="3D Circuit Statue Head" class="be-3d-img" />
+            <div class="visual-glow-orange"></div>
+          </div>
+        </div>
+
+        <div class="be-text-col">
+          <h2 class="be-sec-title">What We Do</h2>
+          <p class="be-sec-desc">
+            At <strong>Be Group</strong>, we craft intelligent digital experiences that connect brands with people turning creativity and technology into measurable growth.
+          </p>
+
+          <div class="be-hud-box">
+            <div class="hud-pill-header">
+              <span class="hud-stripes">//////</span>
+              <span class="hud-pill-title">Our Expertise Includes</span>
+            </div>
+            <div class="hud-box-body">
+              <ul class="expertise-list">
+                <li><strong>Digital Strategy:</strong> market insights, audience targeting & performance planning</li>
+                <li><strong>Creative Direction:</strong> branding, content creation & social media campaigns</li>
+                <li><strong>Media & Advertising:</strong> paid media, influencer marketing & digital storytelling</li>
+                <li><strong>Technology Solutions:</strong> websites, apps & integrated digital systems</li>
+                <li><strong>Data & Intelligence:</strong> analytics, reporting & continuous optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="be-footer-tag">
+        <span class="digital-tag">Digital Solutions</span>
+        <span class="smarter-tag">Made Smarter</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: BE GROUP VISION -->
+  <section class="section-be-group" id="product">
+    <div class="be-ambient-glow"></div>
+    <div class="be-container">
+      <div class="be-header-bar">
+        <div class="be-brand-tag">
+          <span class="be-logo-text">Be<span class="be-sub-tag">GROUP</span></span>
+        </div>
+        <div class="be-intel-tag">
+          <strong>Intelligence</strong>
+          <span>has a heartbeat and it sounds like 1s</span>
+        </div>
+      </div>
+
+      <div class="be-content-grid">
+        <div class="be-hud-box hud-vision-box">
+          <div class="hud-pill-header">
+            <span class="hud-stripes">//////</span>
+            <span class="hud-pill-title"><strong>Be Group</strong> Vision</span>
+          </div>
+          <div class="hud-box-body">
+            <p class="vision-quote">
+              To redefine the digital marketing landscape through innovation, creativity, and technology becoming <span class="orange-highlight">the region's most trusted</span> and inspiring marketing partner.
+            </p>
+          </div>
+        </div>
+
+        <div class="be-visual-col">
+          <div class="visual-wrapper">
+            <img src="/gallery/cyber_iris_eye.png" alt="3D Cyber Eye Vision" class="be-3d-img eye-scale" />
+            <div class="visual-glow-orange"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="be-footer-tag">
+        <span class="digital-tag">Digital Solutions</span>
+        <span class="smarter-tag">Made Smarter</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: WHO WE WORK WITH (INTERACTIVE PHYSICS BUBBLES) -->
+  <section class="section-who-we-work-with" id="partners">
+    <div class="partners-ambient-glow"></div>
+    <div class="partners-container">
+      <h2 class="partners-title">Who we work with</h2>
+      <p class="partners-subtitle">Empowering world-class brands, creators & media leaders worldwide</p>
+
+      <div id="physics-bubbles-container" class="physics-stage">
+        <!-- Interactive physics bubbles rendered dynamically in main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: CONTINUOUS HORIZONTAL 3D MARQUEE TESTIMONIALS -->
+  <section class="section-testimonials-3d" id="testimonials">
+    <div class="testimonials-ambient-glow"></div>
+    <div class="testimonials-container">
+      <h2 class="testimonials-main-heading">Great ideas live here</h2>
+      <p class="testimonials-sub-heading">Loved by founders, creators & industry leaders worldwide</p>
+
+      <div class="testimonials-3d-stage">
+        <div class="testimonials-marquee-track">
+          <!-- Set 1 -->
+          <div class="t-card">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐</span>
+              <span class="t-meta-users">👥 1</span>
+              <span class="t-meta-vol">Vol <strong>$171</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring">
+                <img src="/gallery/scrolled_state_1_1785399076661.png" alt="Atlas Avatar" />
+              </div>
+              <h3 class="t-card-name">AS</h3>
+              <p class="t-card-handle">atlas shrugged ⎘</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$8.50k</strong></span>
+            </div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐</span>
+              <span class="t-meta-users">👥 842</span>
+              <span class="t-meta-vol">Vol <strong>$210.45k</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring">
+                <img src="/gallery/avatar_1.png" alt="Marcus Avatar" />
+              </div>
+              <h3 class="t-card-name">MARCUS</h3>
+              <p class="t-card-handle">marcus.ai ⎘</p>
+              <p class="t-quote">"The 3D scroll experience and AI polish exceeded all expectations."</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$5.12m</strong></span>
+            </div>
+          </div>
+
+          <div class="t-card t-featured">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐 ✖</span>
+              <span class="t-meta-users">👥 1052</span>
+              <span class="t-meta-vol">Vol <strong>$520.86k</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring featured-ring">
+                <img src="/gallery/avatar_2.png" alt="Magik Avatar" />
+              </div>
+              <h3 class="t-card-name">MAGIK</h3>
+              <p class="t-card-handle">Magikarp ⎘</p>
+              <p class="t-quote">"Rip digital Pokémon packs, hit real Grails with high-speed AI craftsmanship."</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$10.38m</strong></span>
+            </div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐 ✖</span>
+              <span class="t-meta-users">👥 11818</span>
+              <span class="t-meta-vol">Vol <strong>$135.35k</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring">
+                <div class="t-avatar-placeholder"></div>
+              </div>
+              <h3 class="t-card-name">LIGHT</h3>
+              <p class="t-card-handle">Light ⎘</p>
+              <p class="t-quote">"Unmatched performance, luxury glass aesthetics, and buttery transitions."</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$14.06m</strong></span>
+            </div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐</span>
+              <span class="t-meta-users">👥 3400</span>
+              <span class="t-meta-vol">Vol <strong>$95.10k</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring">
+                <img src="/gallery/cyber_robot_head.png" alt="Aether Avatar" />
+              </div>
+              <h3 class="t-card-name">AETHER</h3>
+              <p class="t-card-handle">aether.io ⎘</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$22.80m</strong></span>
+            </div>
+          </div>
+
+          <!-- Duplicated Set for Seamless Infinite Loop -->
+          <div class="t-card">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐</span>
+              <span class="t-meta-users">👥 1</span>
+              <span class="t-meta-vol">Vol <strong>$171</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring">
+                <img src="/gallery/scrolled_state_1_1785399076661.png" alt="Atlas Avatar" />
+              </div>
+              <h3 class="t-card-name">AS</h3>
+              <p class="t-card-handle">atlas shrugged ⎘</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$8.50k</strong></span>
+            </div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐</span>
+              <span class="t-meta-users">👥 842</span>
+              <span class="t-meta-vol">Vol <strong>$210.45k</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring">
+                <img src="/gallery/avatar_1.png" alt="Marcus Avatar" />
+              </div>
+              <h3 class="t-card-name">MARCUS</h3>
+              <p class="t-card-handle">marcus.ai ⎘</p>
+              <p class="t-quote">"The 3D scroll experience and AI polish exceeded all expectations."</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$5.12m</strong></span>
+            </div>
+          </div>
+
+          <div class="t-card t-featured">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐 ✖</span>
+              <span class="t-meta-users">👥 1052</span>
+              <span class="t-meta-vol">Vol <strong>$520.86k</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring featured-ring">
+                <img src="/gallery/avatar_2.png" alt="Magik Avatar" />
+              </div>
+              <h3 class="t-card-name">MAGIK</h3>
+              <p class="t-card-handle">Magikarp ⎘</p>
+              <p class="t-quote">"Rip digital Pokémon packs, hit real Grails with high-speed AI craftsmanship."</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$10.38m</strong></span>
+            </div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐 ✖</span>
+              <span class="t-meta-users">👥 11818</span>
+              <span class="t-meta-vol">Vol <strong>$135.35k</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring">
+                <div class="t-avatar-placeholder"></div>
+              </div>
+              <h3 class="t-card-name">LIGHT</h3>
+              <p class="t-card-handle">Light ⎘</p>
+              <p class="t-quote">"Unmatched performance, luxury glass aesthetics, and buttery transitions."</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$14.06m</strong></span>
+            </div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-card-header">
+              <span class="t-globe-icon">🌐</span>
+              <span class="t-meta-users">👥 3400</span>
+              <span class="t-meta-vol">Vol <strong>$95.10k</strong></span>
+            </div>
+            <div class="t-card-body">
+              <div class="t-avatar-ring">
+                <img src="/gallery/cyber_robot_head.png" alt="Aether Avatar" />
+              </div>
+              <h3 class="t-card-name">AETHER</h3>
+              <p class="t-card-handle">aether.io ⎘</p>
+            </div>
+            <div class="t-card-footer">
+              <span class="t-mc-label">MC <strong>$22.80m</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: BE GROUP MISSION (MOVED BELOW TESTIMONIALS) -->
+  <section class="section-be-group" id="mission">
+    <div class="be-ambient-glow"></div>
+    <div class="be-container">
+      <div class="be-header-bar">
+        <div class="be-brand-tag">
+          <span class="be-logo-text">Be<span class="be-sub-tag">GROUP</span></span>
+        </div>
+        <div class="be-intel-tag">
+          <strong>Intelligence</strong>
+          <span>has a heartbeat and it sounds like 1s</span>
+        </div>
+      </div>
+
+      <div class="be-content-grid grid-reverse">
+        <div class="be-visual-col">
+          <div class="visual-wrapper">
+            <img src="/gallery/cyber_lotus_hand.png" alt="3D Cyber Lotus Hand" class="be-3d-img" />
+            <div class="visual-glow-orange"></div>
+          </div>
+        </div>
+
+        <div class="be-text-col">
+          <div class="be-hud-box">
+            <div class="hud-pill-header">
+              <span class="hud-stripes">//////</span>
+              <span class="hud-pill-title"><strong>Be Group</strong> Mission</span>
+            </div>
+            <div class="hud-box-body">
+              <p class="mission-quote">
+                To deliver effective, result-driven marketing solutions that empower brands to grow and maximize their <span class="orange-highlight">ROI</span> through innovation, technology, and outstanding customer experience.
+              </p>
+            </div>
+          </div>
+
+          <!-- Glowing Orange Callout Accent Card -->
+          <div class="orange-accent-card">
+            <span class="accent-stripes">////// *</span>
+            <p>
+              Our commitment to knowledge, creativity, and integrity sets us apart as a trusted marketing partner across Egypt and the Gulf region.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="be-footer-tag">
+        <span class="digital-tag">Digital Solutions</span>
+        <span class="smarter-tag">Made Smarter</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: CONTACT & COMMUNITY FOOTER SECTION -->
+  <footer class="section-contact-footer" id="contact">
+    <div class="footer-ambient-glow"></div>
+    <div class="footer-container">
+      
+      <!-- Top CTA Header Bar -->
+      <div class="footer-cta-header">
+        <div class="cta-header-left">
+          <div class="badge-tag contact-pill">
+            <span class="pill-dot">●</span>
+            <span>Contact Us</span>
+          </div>
+
+          <!-- Rotating Circular Seal Stamp -->
+          <div class="circular-seal-badge">
+            <svg viewBox="0 0 100 100" width="100" height="100" class="seal-text-svg">
+              <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+              <text font-size="9.5" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="1.8">
+                <textPath href="#circlePath" startOffset="0%">
+                  • BE GROUP • DIGITAL CREATIVE • 2026
+                </textPath>
+              </text>
+            </svg>
+            <div class="seal-center-logo">be</div>
+          </div>
+        </div>
+
+        <div class="cta-header-right">
+          <span class="cta-sub-label">Let's start</span>
+          <h2 class="cta-main-title">Join the <span class="italic-serif font-serif">Community</span></h2>
+
+          <button class="btn-get-in-touch">
+            <span>Get in touch</span>
+            <div class="touch-arrow-circle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Middle Divider Tags Bar -->
+      <div class="footer-tags-bar">
+        <span class="foot-tag-item">+ Impactful Creatives</span>
+        <span class="foot-tag-item">+ Global Support</span>
+      </div>
+
+      <!-- Bottom Bento Grid -->
+      <div class="footer-bento-grid">
+        
+        <!-- Left Bento Card (Brand Info & Nav Pills) -->
+        <div class="bento-card bento-card-main">
+          <!-- Glass Watermark Logo -->
+          <div class="bento-watermark-logo">be</div>
+
+          <div class="bento-main-top">
+            <h3 class="bento-brand-name">Be<span class="be-sub-tag">GROUP</span></h3>
+            <p class="bento-brand-desc">
+              We empower visual creators and forward-thinking brands to share their stories and connect with the world.
+            </p>
+          </div>
+
+          <div class="bento-main-bottom">
+            <div class="bento-nav-pills">
+              <a href="#hero-track" class="bento-pill">Home</a>
+              <a href="#about" class="bento-pill">About Us</a>
+              <a href="#features" class="bento-pill">Features</a>
+              <a href="#partners" class="bento-pill">Partners</a>
+              <a href="#testimonials" class="bento-pill">Testimonials</a>
+            </div>
+
+            <div class="bento-copyright">
+              Be Group © 2026. All Rights Reserved.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Bento Card (Socials & Newsletter) -->
+        <div class="bento-card bento-card-side">
+          <div class="bento-side-top">
+            <h4 class="bento-side-title">Explore the Socials of Be Group</h4>
+            <div class="bento-social-icons">
+              <a href="#" class="social-icon-btn" title="Website">🌐</a>
+              <a href="#" class="social-icon-btn" title="Instagram">📸</a>
+              <a href="#" class="social-icon-btn" title="X / Twitter">𝕏</a>
+              <a href="#" class="social-icon-btn" title="LinkedIn">in</a>
+            </div>
+          </div>
+
+          <div class="bento-side-bottom">
+            <div class="newsletter-header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>Newsletter</span>
+            </div>
+
+            <form class="newsletter-input-box" onsubmit="event.preventDefault();">
+              <input type="email" placeholder="Your email..." required />
+              <button type="submit" class="btn-submit-newsletter">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </form>
+
+            <p class="privacy-disclaimer">
+              By subscribing, you're added to our list. <a href="#">Privacy Policy</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Fixed Bottom Bar -->
+  <footer class="hero-bottom-bar">
+    <div class="bottom-left-tag">
+      <span class="est-badge">EST 2019</span>
+      <span class="details-badge">Live In Details</span>
+    </div>
+
+    <div class="bottom-right-group">
+      <div class="partners-block">
+        <span class="partners-label">Our Partners</span>
+        <div class="partners-logos">
+          <span class="partner-item">
+            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg> BookStore
+          </span>
+          <span class="partner-item">
+            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg> zantic
+          </span>
+          <span class="partner-item">
+            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 8v8M8 12h8"/>
+            </svg> Crona
+          </span>
+          <span class="partner-item">
+            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l9 4.9v9.8L12 22l-9-4.9V6.9L12 2z"/>
+            </svg> Mercury
+          </span>
+          <span class="partner-item">
+            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg> Wage
+          </span>
+        </div>
+      </div>
+
+      <div class="scroll-down-indicator" id="scroll-down-btn">
+        <span id="scroll-step-text">Scroll Down</span>
+        <div class="down-arrow-circle">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
